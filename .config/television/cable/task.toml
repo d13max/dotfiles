@@ -1,0 +1,25 @@
+[metadata]
+name = "task"
+description = "List and run Taskfile tasks"
+requirements = ["task", "jq"]
+
+[source]
+command = "task --list-all --json | jq -r '.tasks[] | [.name, (.desc // \"\")] | @tsv'"
+
+# Keep the task name as the actual selected/output value.
+output = "{split:\\t:0}"
+
+# Show the description alongside the task name.
+display = "{split:\\t:0} | {split:\\t:1}"
+
+[preview]
+command = "task --summary '{split:\\t:0}'"
+
+[keybindings]
+enter = "actions:run"
+
+[actions.run]
+description = "Run the selected task"
+command = "task '{split:\\t:0}'"
+mode = "execute"
+
