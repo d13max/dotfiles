@@ -1,0 +1,11 @@
+font-family = "JetBrains Mono"
+font-size = 17
+adjust-cell-height = 20%
+theme = Vesper
+
+window-padding-x = 10
+window-padding-y = 10
+
+
+shell-integration = fish
+macos-titlebar-style = tabs
